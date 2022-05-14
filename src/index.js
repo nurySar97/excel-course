@@ -1,8 +1,11 @@
-import "./assets/scss/index.scss";
-import { sleep } from "./module";
+import './assets/scss/index.scss';
 
-void (async function () {
-  console.log("Sleep 2 seconds!");
+import {sleep} from './module';
+
+void (async function() {
+  console.log('Sleep 2 seconds!');
+
   await sleep(2000);
-  console.log("I have got up already!");
+
+  console.log('I have got up already!');
 })();
