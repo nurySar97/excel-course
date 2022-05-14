@@ -1,12 +1,8 @@
 import "./assets/scss/index.scss";
-import { sum } from "@/module.js";
+import { sleep } from "./module";
 
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
-}
-
-const man = new Person("Muha");
-
-console.log(man, sum(1,2));
+void (async function () {
+  console.log("Sleep 2 seconds!");
+  await sleep(2000);
+  console.log("I have got up already!");
+})();
