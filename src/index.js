@@ -1,5 +1,12 @@
-import "./style.scss";
+import "./assets/scss/index.scss";
+import { sum } from "@/module.js";
 
-const { sum } = require("./module");
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
 
-console.log(sum(1, 2));
+const man = new Person("Muha");
+
+console.log(man, sum(1,2));
