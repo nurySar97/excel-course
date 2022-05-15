@@ -4,9 +4,35 @@
 	right: 0;
 	left: 0;
 
+	display: flex;
+	justify-content: space-between;
+
 	height: $header_height;
+	padding: 8px 4px 0;
 
-	.input {}
+	& .input {
+		min-width: 1px;
+		height: 20px;
+		margin: 0;
+		padding: 2px 7px;
 
-	.button {}
+		color: $black;
+		border: 1px solid transparent;
+		border-radius: 2px;
+		outline: none;
+
+		font-size: 18px;
+		line-height: 22px;
+
+		&:hover {
+			border: 1px solid $border_color;
+		}
+
+		&:focus {
+			border: 2px solid #1A73E8;
+		}
+	}
+
+	& .button {
+		@include button(red); }
 }

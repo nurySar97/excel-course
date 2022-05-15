@@ -1,31 +1,8 @@
 @import "~normalize.css";
+@import "./init";
 @import "1_variables";
 @import "2_mixins";
 @import "3_components";
-
-html,
-body {
-	display: flex;
-
-	width: 100%;
-	height: 100%;
-	margin: 0;
-
-	background-color: lch(53 105 40deg);
-
-	font-family: Roboto, sans-serif;
-}
-
-*,
-*::after,
-*::before {
-	box-sizing: border-box;
-}
-
-.root {
-	width: 100%;
-	height: 100%;
-}
 
 .excel {
 	position: relative;
