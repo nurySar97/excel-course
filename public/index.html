@@ -6,10 +6,40 @@
   <title>Webpack App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-  <div class="root" id="root"></div>
+  <div class="root" id="root">
+    <!-- Excel start -->
+    <div class="excel">
+
+      <div class="excel__header">
+        <input class="input" type="text">
+        <div>
+          
+          <div class="button" role="button">
+            <i class="material-icons">delete</i>
+          </div>
+
+          <div class="button" role="button">
+            <i class="material-icons">exit_to_app</i>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="excel__toolbar"></div>
+      <div class="excel__formula"></div>
+      <div class="excel__table"></div>
+    </div>
+    <!-- Excel end -->
+  </div>
 </body>
 
 </html>
