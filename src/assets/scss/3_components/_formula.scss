@@ -1,1 +1,36 @@
-.excel__formula {}
+.excel__formula {
+	position: absolute;
+	top: $header_height + $toolbar_height;
+	right: 0;
+	left: 0;
+
+	display: flex;
+	align-items: center;
+
+	height: $formula_height;
+
+	border-bottom: 1px solid $border_color;
+
+	& .info {
+		min-width: $info_cell_width;
+
+		text-align: center;
+
+		border-right: 1px solid $border_color;
+
+		font-size: 18px;
+		font-style: italic;
+	}
+
+	& .input {
+		width: 100%;
+		height: 100%;
+		padding: 5px 4px;
+
+		color: $black;
+
+		outline: none;
+
+		font-size: 12px;
+	}
+}
