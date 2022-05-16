@@ -63,12 +63,7 @@ module.exports = {
   ],
   module: {
     rules: [
-      /* Css*/
-      {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'postcss-loader', 'css-loader'],
-      },
-      /* Scss*/
+      /* Css | Scss*/
       {
         test: /\.(s[ac]|c)ss$/i,
         use: [
