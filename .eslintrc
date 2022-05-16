@@ -13,7 +13,8 @@
         "arrow-parens": "off",
         "comma-dangle": "off",
         "require-jsdoc": "off",
-        "sort-imports": "off"
+        "sort-imports": "off",
+        "operator-linebreak":"off"
     },
     "extends": [
         "eslint:recommended",
