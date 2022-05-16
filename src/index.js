@@ -1,3 +1,7 @@
-import {ExcelComponent} from '@core';
+import {Excel} from '@/components';
 
-console.log(ExcelComponent.constructor.name)
+const excel = new Excel('#root', {
+  component: []
+});
+
+console.log('Excel element: ', excel.$el);
