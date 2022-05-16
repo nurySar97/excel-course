@@ -1,7 +1,7 @@
-import {Excel} from '@/components';
+import {Excel, Formula, Header, Table, Toolbar} from '@/components'
 
 const excel = new Excel('#root', {
-  component: []
+  components: [Header, Toolbar, Formula, Table]
 });
 
-console.log('Excel element: ', excel.$el);
+excel.render();
