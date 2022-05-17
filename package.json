@@ -10,7 +10,8 @@
         "webpack:prod": "cross-env NODE_ENV=production webpack --mode production",
         "dev-server:dev": "webpack serve --mode development",
         "dev-server:prod": "webpack serve --mode production",
-        "stylelint": "stylelint \"**/*.scss\" --fix"
+        "stylelint": "stylelint \"**/*.scss\" --fix",
+        "lint":"eslint \"**/*.js\" --fix"
     },
     "repository": {
         "type": "git",

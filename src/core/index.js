@@ -1,3 +1,4 @@
-export {$} from '@core/Dom';
-export {DomListener} from '@core/DomListener';
-export {ExcelComponent} from '@core/ExcelComponent';
+export * from '@core/Dom';
+export * from '@core/DomListener';
+export * from '@core/ExcelComponent';
+export * from '@core/utils';

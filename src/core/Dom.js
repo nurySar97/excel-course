@@ -15,6 +15,7 @@ class Dom {
 
   clear() {
     this.html('');
+
     return this;
   }
 
@@ -32,8 +33,9 @@ class Dom {
     return this;
   }
 
-  on() {
-
+  on(eventType, callback=()=>{}) {
+    this.$element.addEventListener(eventType, callback);
+    return this
   }
 }
 
