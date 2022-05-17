@@ -9,6 +9,7 @@ class Dom {
     if (typeof html === 'string') {
       this.$element.innerHTML = html;
     }
+
     return this.$element.outerHTML;
   }
 
@@ -18,11 +19,21 @@ class Dom {
   }
 
   append(node) {
-    if (Element.prototype.append) {
-      this.$element.append(node.$element)
-    } else {
-      this.$element.appendChild(node.$element)
+    if (node instanceof Dom) {
+      node = node.$element;
     }
+
+    if (Element.prototype.append) {
+      this.$element.append(node);
+    } else {
+      this.$element.appendChild(node);
+    }
+
+    return this;
+  }
+
+  on() {
+
   }
 }
 
@@ -32,8 +43,10 @@ export function $(selector) {
 
 $.create = (tagName = 'div', classNames = '') => {
   const $element = document.createElement(tagName);
+
   if (classNames) {
     $element.classList.add(classNames);
   }
-  return $($element)
+
+  return $($element);
 }

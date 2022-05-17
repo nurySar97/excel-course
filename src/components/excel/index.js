@@ -2,7 +2,7 @@ import {$} from '@core';
 
 export class Excel {
   constructor(selector = '#root', options = {components: []}) {
-    this.$el = document.querySelector(selector)
+    this.$el = $(selector);
     this.components = options.components;
   }
 
@@ -16,10 +16,10 @@ export class Excel {
       $root.append($el);
     });
 
-    return $root.$element
+    return $root;
   }
 
   render() {
-    return this.$el.append(this.getRoot())
+    this.$el.append(this.getRoot());
   }
 }

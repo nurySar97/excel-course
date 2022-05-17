@@ -27,18 +27,15 @@ export class Table extends ExcelComponent {
 
   <div class="row">
     <div class="row-info">1</div>
-
     <div class="row-data">
       <div class="cell selected" contenteditable>A1</div>
       <div class="cell" contenteditable>B1</div>
-      <div class="cell" contenteditable>C1</div>
       <div class="cell" contenteditable>C1</div>
     </div>
   </div>
 
   <div class="row">
     <div class="row-info">2</div>
-
     <div class="row-data">
       <div class="cell" contenteditable>A2</div>
       <div class="cell" contenteditable>B2</div>
