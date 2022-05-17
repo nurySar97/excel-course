@@ -1,0 +1,8 @@
+// Excel => for initializing application;
+
+// Components structure
+    -Component extends ExcelComponent extends DOMListener
+
+// Dom wrapper document element for easy control dom nodes
+
+// $ for create or to take dom elements

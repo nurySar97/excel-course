@@ -14,7 +14,8 @@
         "comma-dangle": "off",
         "require-jsdoc": "off",
         "sort-imports": "off",
-        "operator-linebreak":"off"
+        "operator-linebreak":"off",
+        "max-len": "off"
     },
     "extends": [
         "eslint:recommended",

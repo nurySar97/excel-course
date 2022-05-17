@@ -9,6 +9,7 @@ export class Excel {
 
   getRoot() {
     const $root = $.create('div', 'excel');
+
     this.components = this.components.map(Component => {
       const $element = $.create('div', Component.className);
 
