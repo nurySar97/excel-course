@@ -9,17 +9,30 @@ export class DomListener {
     this.listeners = listeners;
 
     this.$root = $root;
+
+    this.subscribedListeners = {};
   }
 
   initDOMListeners() {
     this.listeners.forEach(eventType => {
       const method = getMethodName(eventType);
-      this.$root.on(eventType, this[method])
+      let callBack = this[method];
+
+      if (typeof callBack === 'function') {
+        callBack = callBack.bind(this);
+        this.subscribedListeners[eventType] = callBack;
+      }
+
+      this.$root.on(eventType, callBack);
     })
   }
 
   removeDomListeners() {
+    this.listeners.forEach(eventType => {
+      this.$root.off(eventType, this.subscribedListeners[eventType])
+    });
 
+    this.subscribedListeners = {};
   }
 }
 
