@@ -11,17 +11,17 @@ export class Table extends ExcelComponent {
       <div class="column">A</div>
       <div class="column">B</div>
       <div class="column">C</div>
-      <div class="column">C</div>
-      <div class="column">C</div>
-      <div class="column">C</div>
-      <div class="column">C</div>
-      <div class="column">C</div>
-      <div class="column">C</div>
-      <div class="column">C</div>
-      <div class="column">C</div>
-      <div class="column">C</div>
-      <div class="column">C</div>
-      <div class="column">C</div>
+      <div class="column">D</div>
+      <div class="column">E</div>
+      <div class="column">F</div>
+      <div class="column">G</div>
+      <div class="column">K</div>
+      <div class="column">L</div>
+      <div class="column">M</div>
+      <div class="column">N</div>
+      <div class="column">O</div>
+      <div class="column">P</div>
+      <div class="column">X</div>
     </div>
   </div>
 
