@@ -1,6 +1,8 @@
 import {createTable} from '@/templates';
 import {ExcelComponent} from '@core';
 
+const storage = JSON.parse(localStorage.getItem('tableData')) || {};
+
 export class Table extends ExcelComponent {
   static className = 'excel__table';
 
@@ -13,7 +15,12 @@ export class Table extends ExcelComponent {
 
 
   onInput(event) {
-    console.log('Cell coords: ', event.target.dataset.cell)
+    const target = event.target;
+    if (target.dataset.cell) {
+      storage[target.dataset.cell] = target.textContent;
+    }
+
+    localStorage.setItem('tableData', JSON.stringify(storage))
   }
 
 
