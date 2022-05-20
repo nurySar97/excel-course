@@ -1,4 +1,4 @@
-import {createTableTemplate} from '@/templates';
+import {createTable} from '@/templates';
 import {ExcelComponent} from '@core';
 
 export class Table extends ExcelComponent {
@@ -18,6 +18,6 @@ export class Table extends ExcelComponent {
 
 
   toHTML() {
-    return createTableTemplate();
+    return createTable();
   }
 }

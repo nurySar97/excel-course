@@ -1,1 +1,4 @@
-export * from '@/templates/table.template';
+export * from '@/templates/createTable';
+export * from '@/templates/createRow';
+export * from '@/templates/createColumn';
+export * from '@/templates/createCell';

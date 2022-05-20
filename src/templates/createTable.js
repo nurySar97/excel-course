@@ -1,11 +1,12 @@
+import {createRow, createColumn, createCell} from '@/templates';
+
+
 const {fromCharCode} = String;
-
-
 const CODES = {A: 65, Z: 90};
 const COLUMNS_COUNT = CODES['Z'] - CODES['A'];
 
 
-export function createTableTemplate(rowsCount = 30) {
+export function createTable(rowsCount = 30) {
   const rows = [];
   let columns = [];
   let newRow = ''; let newColumn ='';
@@ -26,33 +27,12 @@ export function createTableTemplate(rowsCount = 30) {
 
 
     newRow = (row === 0)
-      ? createRow('', columns.join(''))
-      : createRow(row, columns.join(''))
+      ? createRow(columns, '')
+      : createRow(columns, row)
 
 
     rows.push(newRow);
     columns = []
   }
   return rows.join('')
-}
-
-
-function createRow(info='', columns='') {
-  return `
-  <div class="row">
-    <div class="row-info">${info}</div>
-    <div class="row-data">
-      ${columns}
-    </div>
-  </div>`
-}
-
-
-function createColumn(content) {
-  return `<div class="column">${content}</div>`
-}
-
-
-function createCell(content='', dataCell='') {
-  return `<div class="cell" data-cell=${dataCell} contenteditable>${content}</div>`
 }
