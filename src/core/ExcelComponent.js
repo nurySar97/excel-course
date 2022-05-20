@@ -6,13 +6,16 @@ export class ExcelComponent extends DomListener {
     this.name = options.name;
   }
 
+
   toHTML() {
     return `<h1>ExcelComponent</h1>`
   }
 
+
   init() {
     this.initDOMListeners();
   }
+
 
   destroy() {
     this.removeDomListeners();

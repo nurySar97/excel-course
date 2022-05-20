@@ -8,9 +8,8 @@ export class Formula extends ExcelComponent {
       name: 'Formula',
       listeners: ['input'],
     });
-
-    this.name = this.constructor.name;
   }
+
 
   toHTML() {
     return `
@@ -18,6 +17,7 @@ export class Formula extends ExcelComponent {
     <div class="input" contenteditable spellcheck="false"></div>
     `
   }
+
 
   onInput(event) {
     // console.log(this.$root)

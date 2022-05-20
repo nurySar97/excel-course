@@ -5,6 +5,7 @@ class Dom {
         : selector;
   }
 
+
   html(html) {
     if (typeof html === 'string') {
       this.$element.innerHTML = html;
@@ -13,11 +14,13 @@ class Dom {
     return this.$element.outerHTML;
   }
 
+
   clear() {
     this.html('');
 
     return this;
   }
+
 
   append(node) {
     if (node instanceof Dom) {
@@ -33,10 +36,12 @@ class Dom {
     return this;
   }
 
+
   on(eventType, callback=()=>{}) {
     this.$element.addEventListener(eventType, callback);
     return this
   }
+
 
   off(eventType, callback=()=>{}) {
     this.$element.removeEventListener(eventType, callback);
@@ -44,9 +49,11 @@ class Dom {
   }
 }
 
+
 export function $(selector) {
   return new Dom(selector);
 }
+
 
 $.create = (tagName = 'div', classNames = '') => {
   const $element = document.createElement(tagName);

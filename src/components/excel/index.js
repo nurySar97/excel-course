@@ -7,6 +7,7 @@ export class Excel {
     this.components = options.components;
   }
 
+
   getRoot() {
     const $root = $.create('div', 'excel');
 
@@ -24,6 +25,7 @@ export class Excel {
 
     return $root;
   }
+
 
   render() {
     this.$initExcelElement.append(this.getRoot());

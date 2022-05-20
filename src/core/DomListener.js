@@ -51,6 +51,7 @@ export class DomListener {
   }
 }
 
+
 function getMethodName(eventType) {
   return 'on' + capitalize(eventType)
 }

@@ -6,6 +6,8 @@
 
 	overflow-x: auto;
 
+	height: calc(100% - ($header_height + $toolbar_height + $formula_height));
+
 	padding: 2px;
 
 	.row {
