@@ -14,10 +14,9 @@ export function createTable(rowsCount = 30) {
   const rows = [];
   let columns = [];
   let newRow = ''; let newColumn = '';
-  const storage = JSON.parse(localStorage.getItem('tableData')) || {};
 
 
-  const proxiedStorage = new Proxy(storage, {
+  const store = new Proxy({}, {
     get(target, key) {
       return target[key] || ''
     }
@@ -33,10 +32,11 @@ export function createTable(rowsCount = 30) {
       // When create first column content equal to letters [A-Z] and other cells
       newColumn = (row === 0)
         ? createColumn(columnIndex)
-        : createCell(proxiedStorage[columnIndex + row], columnIndex + row);
+        : createCell(store[columnIndex + row], columnIndex + row);
       columns.push(newColumn);
     }
     // End create column
+
 
     // When create row first row info will me empty string
     newRow = createRow(columns, row === 0 ? '' : row);
