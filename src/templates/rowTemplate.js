@@ -1,4 +1,4 @@
-export function createRow(columns, info = '') {
+export function rowTemplate(columns, info = '') {
   const newColumns = Array.isArray(columns) ? columns.join('') : columns
   return `
     <div class="row">

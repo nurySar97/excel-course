@@ -1,3 +1,4 @@
+import {formulaTemplate} from '@/templates';
 import {ExcelComponent} from '@core';
 
 export class Formula extends ExcelComponent {
@@ -12,15 +13,11 @@ export class Formula extends ExcelComponent {
 
 
   toHTML() {
-    return `
-    <div class="info">fx</div>
-    <div class="input" contenteditable spellcheck="false"></div>
-    `
+    return formulaTemplate()
   }
 
 
   onInput(event) {
-    // console.log(this.$root)
     console.log('Formula onInput: ', event.target.textContent)
   }
 }

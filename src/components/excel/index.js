@@ -16,7 +16,9 @@ export class Excel {
 
       const component = new Component($element);
 
-      $element.html(component.toHTML());
+      const htmlComponent = component.toHTML();
+
+      $element.html(htmlComponent);
 
       $root.append($element);
 

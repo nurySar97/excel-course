@@ -1,4 +1,4 @@
-import {createRow, createColumn, createCell} from '@/templates';
+import {rowTemplate, columnTemplate, cellTemplate} from '@/templates';
 
 // createRow => creates row template
 // createColumn => createColumn row template
@@ -31,15 +31,15 @@ export function createTable(rowsCount = 30) {
 
       // When create first column content equal to letters [A-Z] and other cells
       newColumn = (row === 0)
-        ? createColumn(columnIndex)
-        : createCell(store[columnIndex + row], columnIndex + row);
+        ? columnTemplate(columnIndex)
+        : cellTemplate(store[columnIndex + row], columnIndex + row);
       columns.push(newColumn);
     }
     // End create column
 
 
     // When create row first row info will me empty string
-    newRow = createRow(columns, row === 0 ? '' : row);
+    newRow = rowTemplate(columns, row === 0 ? '' : row);
 
     rows.push(newRow);
     columns = [];
