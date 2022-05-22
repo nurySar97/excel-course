@@ -1,29 +1,39 @@
 import {createTable} from '@/templates';
 import {ExcelComponent} from '@core';
 
-const storage = {};
-
 export class Table extends ExcelComponent {
   static className = 'excel__table';
 
   constructor($root) {
     super($root, {
       name: 'Table',
-      listeners: ['input'],
+      listeners: ['mousedown', 'mouseup', 'mousemove'],
     });
+
+    this.isMouseMoveActivated = false;
   }
 
 
-  onInput(event) {
-    const target = event.target;
-    if (target.dataset.cell) {
-      storage[target.dataset.cell] = target.textContent;
+  onMousedown(event) {
+    console.log('onMousedown')
+    this.isMouseMoveActivated = true
+  }
+
+
+  onMousemove() {
+    if (this.isMouseMoveActivated) {
+      console.log('onMousemove')
     }
-    console.log(storage);
+  }
+
+
+  onMouseup() {
+    console.log('onMouseup')
+    this.isMouseMoveActivated = false
   }
 
 
   toHTML() {
-    return createTable();
+    return createTable(20);
   }
 }
