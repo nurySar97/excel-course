@@ -15,21 +15,23 @@ export class Table extends ExcelComponent {
 
 
   onMousedown(event) {
-    console.log('onMousedown')
-    this.isMouseMoveActivated = true
+    if (event.target.classList.contains('resize')) {
+      console.log(event.offsetX)
+      this.isMouseMoveActivated = true
+    }
   }
 
 
-  onMousemove() {
+  onMousemove(event) {
     if (this.isMouseMoveActivated) {
       console.log('onMousemove')
     }
   }
 
 
-  onMouseup() {
-    console.log('onMouseup')
+  onMouseup(event) {
     this.isMouseMoveActivated = false
+    console.log(event.target.offsetTop)
   }
 
 

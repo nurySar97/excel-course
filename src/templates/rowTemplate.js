@@ -4,7 +4,10 @@ export function rowTemplate(columns, info = '') {
     <div class="row">
       <div class="row-info">
       ${info}
-      ${info && '<div class="resize row-resize"></div>'}
+      ${info &&
+        `<div class="resize resize-row">
+            <div class="resize__inner resize-row__inner"></div>
+          </div>`}
       </div>
       <div class="row-data">
         ${newColumns}
