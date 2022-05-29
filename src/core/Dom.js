@@ -47,6 +47,22 @@ class Dom {
     this.$element.removeEventListener(eventType, callback);
     return this
   }
+
+  css(style) {
+    Object.assign(this.$element.style, style)
+  }
+
+  closest(selector ='') {
+    return $(this.$element.closest(selector));
+  }
+
+  get getBoundingClientRect() {
+    return this.$element.getBoundingClientRect();
+  }
+
+  get offsetParent() {
+    return $(this.$element.offsetParent);
+  }
 }
 
 

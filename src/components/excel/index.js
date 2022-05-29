@@ -1,10 +1,12 @@
 import {$} from '@core';
 
 export class Excel {
-  constructor(selector = '#root', options = {components: []}) {
+  constructor(selector = '#root', options = {components: []}, rowCount=20) {
     this.$initExcelElement = $(selector);
 
     this.components = options.components;
+
+    this.rowCount = rowCount;
   }
 
 
@@ -14,7 +16,7 @@ export class Excel {
     this.components = this.components.map(Component => {
       const $element = $.create('div', Component.className);
 
-      const component = new Component($element);
+      const component = new Component($element, this.rowCount);
 
       const htmlComponent = component.toHTML();
 

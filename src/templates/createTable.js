@@ -10,7 +10,7 @@ const CODES = {A: 65, Z: 90};
 const COLUMNS_COUNT = CODES['Z'] - CODES['A'];
 
 // Create Table
-export function createTable(rowsCount = 30) {
+export function createTable(rowsCount) {
   const rows = [];
   let columns = [];
   let newRow = ''; let newColumn = '';
