@@ -16,6 +16,8 @@ export class Excel {
     this.components = this.components.map(Component => {
       const $element = $.create('div', Component.className);
 
+      if (Component.dataType) $element.setAttribute('data-type', 'excel-table');
+
       const component = new Component($element, this.rowCount);
 
       const htmlComponent = component.toHTML();

@@ -52,11 +52,23 @@ class Dom {
     Object.assign(this.$element.style, style)
   }
 
+  defaultCss() {
+    this.removeAttribute('style')
+  }
+
   closest(selector ='') {
     return $(this.$element.closest(selector));
   }
 
-  get getBoundingClientRect() {
+  setAttribute(key, value) {
+    this.$element.setAttribute(key, value)
+  }
+
+  removeAttribute(attr) {
+    this.$element.removeAttribute(attr);
+  }
+
+  get getCoords() {
     return this.$element.getBoundingClientRect();
   }
 

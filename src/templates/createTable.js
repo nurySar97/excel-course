@@ -31,7 +31,7 @@ export function createTable(rowsCount) {
       // When create first column content equal to letters [A-Z] and other cells
       newColumn = (row === 0)
         ? columnTemplate(columnContent)
-        : cellTemplate(store[columnContent + row], columnContent + row);
+        : cellTemplate(store[columnContent + row], columnContent);
       columns.push(newColumn);
     }
     // End create column
@@ -44,5 +44,8 @@ export function createTable(rowsCount) {
     columns = [];
   }
   // End create table
-  return rows.join('')
+  return `<div class="excel-table__inner">
+            ${rows.join('')}
+            <div class="resize-line" data-type="resize-line"></div>
+          </div>`
 }

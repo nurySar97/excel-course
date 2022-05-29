@@ -2,25 +2,32 @@ import {createTable} from '@/templates';
 import {$, ExcelComponent} from '@core';
 
 export class Table extends ExcelComponent {
-  static className = 'excel__table';
+  static className = 'excel-table';
+  static dataType = 'excel-table';
 
   constructor($root, rowCount) {
-    super($root, {name: 'Table', listeners: ['mousedown', 'mouseup']});
+    super($root, {name: 'Table', listeners: ['mousedown']});
 
     this.rowCount = rowCount;
-
-    this.onMousemove = this.onMousemove.bind(this);
   }
 
 
-  onMousedown(event) {
-    const dataResize = event.target.dataset.resize;
+  onMousedown(mouseDownEvent) {
+    const dataResize = mouseDownEvent.target.dataset.resize;
 
     if (dataResize) {
-      const [type] = dataResize.split('=');
+      mouseDownEvent.preventDefault();
+      const [type, columIndex] = dataResize.split('=');
 
       if (type === 'col') {
-        const resizer = $(event.target);
+        const excelTable = document.querySelector(`[data-type="${Table.dataType}"]`);
+
+        // + excelTable.scrollLeft
+        $(document.documentElement).css({cursor: 'col-resize'});
+
+        const resizeLine = $(document.querySelector('[data-type="resize-line"]'));
+
+        const resizer = $(mouseDownEvent.target);
 
         // const resizerParent = resizer.$element.parentNode; => This is bad!
 
@@ -28,23 +35,46 @@ export class Table extends ExcelComponent {
 
         const resizerParent = resizer.closest('[data-type="resizeable-column"]');
 
-        console.log(resizerParent.getBoundingClientRect);
+        const resizerParentCoords = resizerParent.getCoords;
 
-        document.onmousemove = this.onMousemove;
+        resizeLine.css({
+          display: 'block',
+          width: '1px',
+          height: '100%',
+          left: `${resizerParentCoords.right + excelTable.scrollLeft - 1}px`,
+          top: 0
+        });
+
+        const resizeLineCoords = resizeLine.getCoords;
+
+        document.onmousemove = mouseMoveEvent => {
+          const delta = mouseMoveEvent.clientX - resizerParentCoords.right;
+
+          const widthValue = delta + resizerParentCoords.width + 'px';
+
+          const resizeLineLeftValue = resizeLineCoords.left + delta + excelTable.scrollLeft + 'px';
+
+          resizeLine.css({left: resizeLineLeftValue});
+
+          resizerParent.css({width: widthValue});
+
+          document.querySelectorAll(`[data-cell='${columIndex}']`).forEach(elem => {
+            const $cell = $(elem);
+            $cell.css({width: widthValue});
+          });
+        }
+
+        document.onmouseup = () => {
+          document.onmousemove = null;
+
+          $(document.documentElement).css({cursor: 'initial'});
+
+          resizeLine.defaultCss();
+        };
       } else if (type === 'row') {
-        console.log('This is row!')
+        console.log('This is row!');
       }
     }
-  }
-
-
-  onMousemove(event) {
-    console.log(event.clientX)
-  }
-
-
-  onMouseup() {
-    document.onmousemove = null;
   }
 
 
