@@ -15,7 +15,6 @@ export function createTable(rowsCount = 30) {
   let columns = [];
   let newRow = ''; let newColumn = '';
 
-
   const store = new Proxy({}, {
     get(target, key) {
       return target[key] || ''
@@ -27,21 +26,21 @@ export function createTable(rowsCount = 30) {
   for (let row = 0; row <= rowsCount; ++row) {
     // Start create column
     for (let column = 0; column <= COLUMNS_COUNT; ++column) {
-      const columnIndex = fromCharCode(column + CODES['A']);
+      const columnContent = fromCharCode(column + CODES['A']);
 
       // When create first column content equal to letters [A-Z] and other cells
       newColumn = (row === 0)
-        ? columnTemplate(columnIndex)
-        : cellTemplate(store[columnIndex + row], columnIndex + row);
+        ? columnTemplate(columnContent)
+        : cellTemplate(store[columnContent + row], columnContent + row);
       columns.push(newColumn);
     }
     // End create column
-
 
     // When create row first row info will me empty string
     newRow = rowTemplate(columns, row === 0 ? '' : row);
 
     rows.push(newRow);
+
     columns = [];
   }
   // End create table

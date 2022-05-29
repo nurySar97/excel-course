@@ -9,29 +9,53 @@ export class Table extends ExcelComponent {
       name: 'Table',
       listeners: ['mousedown', 'mouseup', 'mousemove'],
     });
+    this.isMouseMoveBlocked = true;
+    this.mouseDownInfo = {left: null, top: 0, clientX: null, clientY: null, parent: null}
+  }
 
-    this.isMouseMoveActivated = false;
+  css(element, style) {
+    Object.assign(element.style, style);
   }
 
 
   onMousedown(event) {
-    if (event.target.classList.contains('resize')) {
-      console.log(event.offsetX)
-      this.isMouseMoveActivated = true
+    const [type, index] = event.target.dataset.resize?.split('=') || [];
+
+    if (type === 'col') {
+      this.isMouseMoveBlocked = false
+      const {clientX, clientY} = event;
+      const parent = event.target.offsetParent;
+      const {width} = parent.getBoundingClientRect();
+
+      this.mouseDownInfo = {
+        clientX,
+        clientY,
+        parentInfo: {parent, width},
+        type,
+        index
+      };
     }
   }
 
 
   onMousemove(event) {
-    if (this.isMouseMoveActivated) {
-      console.log('onMousemove')
+    if (!this.isMouseMoveBlocked) {
+      const diff = event.clientX - this.mouseDownInfo.clientX;
+      const {parent} = this.mouseDownInfo.parentInfo;
+      const currentWidth = this.mouseDownInfo.parentInfo.width + diff + 'px'
+
+      this.css(parent, {width: currentWidth});
+
+      for (let i = 1; i <= 20; ++i) {
+        const cell = document.querySelector(`[data-cell=${this.mouseDownInfo.index + i}]`);
+        this.css(cell, {width: currentWidth})
+      }
     }
   }
 
 
   onMouseup(event) {
-    this.isMouseMoveActivated = false
-    console.log(event.target.offsetTop)
+    this.isMouseMoveBlocked = true;
   }
 
 
