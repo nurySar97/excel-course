@@ -8,12 +8,10 @@
 
 	height: calc(100% - ($header_height + $toolbar_height + $formula_height));
 
-
 	&__inner {
 		position: relative;
 		width: 100%;
 	}
-
 
 	.row {
 		display: flex;
@@ -42,6 +40,7 @@
 
 	.row-data {
 		display: flex;
+		padding-right: 1rem;
 	}
 
 	.column {
@@ -148,8 +147,10 @@
 	}
 
 	&-line {
-		display: none;
 		position: absolute;
+
+		display: none;
+
 		background-color: $primary_color;
 	}
 }
